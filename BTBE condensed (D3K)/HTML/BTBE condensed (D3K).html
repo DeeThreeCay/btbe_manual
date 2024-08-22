@@ -1,0 +1,912 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>BTBE — Keep Talking and Nobody Explodes Module</title>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/ktane-utils.js"></script>
+    <style>
+        table {
+            margin: 1em auto;
+        }
+        .small {
+            font-size: small;
+        }
+        .smaller {
+            font-size: smaller;
+        }
+        .page.strip { --strip-color: #258A1E; }
+        .eye-table {font-size: 1.65em !important;}
+    </style>
+</head>
+<body>
+    <div class="section">
+        <!--TODO: Check Page number-->
+
+        <div class="page page-bg-01 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Wires</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Wires</h2>
+                <p class="flavour-text">whoever made this game is a genius</p>
+
+                <p style="margin: 0.35em 0;">Follow rules in order and perform the <em>first action</em> that applies.</p>
+                <p style="margin-bottom: 1.5em;">Only <em>1 wire</em> should be cut to solve the module.</p>
+
+                <table class="center">
+                    <tr>
+                        <th>Condition</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>First 2 wires are red</td>
+                        <td>Cut 2nd wire</td>
+                    </tr>
+                    <tr>
+                        <td>Exactly 1 wire is blue & <br>first digit of SN &geq; 7</td>
+                        <td>Cut blue wire</td>
+                    </tr>
+                    <tr>
+                        <td>2nd or 3rd wire is green & <br>last digit of SN &leq; 4</td>
+                        <td>Cut 1st wire</td>
+                    </tr>
+                    <tr>
+                        <td>3rd wire is yellow</td>
+                        <td>Cut 3rd wire</td>
+                    </tr>
+                    <tr>
+                        <td>3rd or 4th wire is green</td>
+                        <td>Cut last green wire</td>
+                    </tr>
+                    <tr>
+                        <td>Else</td>
+                        <td>Cut the 4th wire</td>
+                    </tr>
+                </table>
+
+                <p><strong><em>Note:</em></strong> <strong>SN</strong> refers to the <strong>Serial Number</strong>.</p>
+
+            </div>
+            <div class="page-footer relative-footer">Page 1 of 18</div>
+        </div>
+
+        <div class="page page-bg-02 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Dual Buttons</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Dual Buttons</h2>
+                <p class="flavour-text">press the blue button 4 times... wait both buttons are blue?</p>
+                <ul>
+                    <li>There are 2 buttons: a press button and a check button.</li>
+                    <li><em>Press the <b>press button</b> a number of times, then the <b>check button</b> once.</em></li>
+                    <li>Determine which button is the press buttton, and the number of times it needs to be pressed.</li>
+                </ul>
+
+                <h4>Step 1: Determine press button</h4>
+                <table class="center">
+                    <tr>
+                        <th>Condition</th>
+                        <th>Press Button is:</th>
+                    </tr>
+                    <tr>
+                        <td>Both Yellow</td>
+                        <td>Left button</td>
+                    </tr>
+                    <tr>
+                        <td>=1 Red <strong>AND</strong> SN(1st) + SN(2nd) &gt; 10</td>
+                        <td>Red button</td>
+                    </tr>
+                    <tr>
+                        <td>&geq;1 Green <strong>AND</strong> SN(last) &gt; 4</td>
+                        <td>Right button</td>
+                    </tr>
+                    <tr>
+                        <td>Left button: Blue</td>
+                        <td>Left button</td>
+                    </tr>
+                    <tr>
+                        <td>&geq;1 Yellow</td>
+                        <td>Right button</td>
+                    </tr>
+                    <tr>
+                        <td>Else</td>
+                        <td>Left button</td>
+                    </tr>
+                </table>
+
+                <p><strong>Note:</strong> <strong>SN(last)</strong> refers to the <strong>last digit</strong> of the Serial Number.</p>
+
+                <h4 style="margin-bottom: 0.35em;">Step 2: Calculate number of presses</h4>
+                Note: Go through ALL conditions and accumulate the total amount of presses.
+                <table class="center">
+                    <tr>
+                        <th>Condition</th>
+                        <th>Number of presses:</th>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>always +1</td>
+                    </tr>
+                    <tr>
+                        <td>Check button: Yellow</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>Has Wires module on bomb</td>
+                        <td>+2</td>
+                    </tr>
+                    <tr>
+                        <td>Press button: Green</td>
+                        <td>+2</td>
+                    </tr>
+                    <tr>
+                        <td>&geq;1 Red</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>Left button: Yellow</td>
+                        <td>+1</td>
+                    </tr>
+                    <tr>
+                        <td>Right button: Blue</td>
+                        <td>+1</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-footer relative-footer">Page 2 of 18</div>
+        </div>
+
+        <div class="page page-bg-03 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">LEDs</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of LEDs</h2>
+                <p class="flavour-text">LED mixing for n00bs.</p>
+                <ul>
+                    <li>To defuse this module you must submit the correct frequency.</li>
+                    <li>Find which LED color to use, then the corresponding frequency.</li>
+                </ul>
+
+                <h4>Step 1: Determine LED color</h4>
+                <p style="margin-bottom: 0.5em;">Familiarize yourself with LED mixing. For example, <em>Magenta has the color Red in it, 
+                    but does not have the color Green in it.</em></p>
+                <p style="margin-top: 0;">Cyan = Green + Blue; Magenta = Red + Blue; Yellow = Red + Green;</p>
+
+                <table>
+                    <tr>
+                        <th>Condition</th>
+                        <th>LED color to use:</th>
+                    </tr>
+                    <tr>
+                        <td>all LEDs has Green</td>
+                        <td>1st LED</td>
+                    </tr>
+                    <tr>
+                        <td>all LEDs has no Red</td>
+                        <td>3rd LED</td>
+                    </tr>
+                    <tr>
+                        <td>exactly 1 LED has Blue</td>
+                        <td>LED with Blue</td>
+                    </tr>
+                    <tr>
+                        <td>exactly 1 LED has no green</td>
+                        <td>LED with no Green</td>
+                    </tr>
+                    <tr>
+                        <td>Else</td>
+                        <td>2nd LED</td>
+                    </tr>
+                </table>
+
+                <h4>Step 2: LED color to Frequency Conversion</h4>
+                <table>
+                    <tr><th>LED color</th><th>Frequency</th>
+                    </tr>
+                    <tr><td>Cyan</td><td>98.48 MHz</td>
+                    </tr>
+                    <tr><td>Red</td><td>98.53 MHz</td>
+                    </tr>
+                    <tr><td>Green</td><td>98.63 MHz</td>
+                    </tr>
+                    <tr><td>Magenta</td><td>98.68 MHz</td>
+                    </tr>
+                    <tr><td>Yellow</td><td>98.78 MHz</td>
+                    </tr>
+                    <tr><td>Blue</td><td>98.88 MHz</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 3 of 18</div>
+        </div>
+
+        <div class="page page-bg-04 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Maze</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Maze</h2>
+                <p class="flavour-text">maze getting an upgrade from 6x6 to 8x8.</p>
+                <ul>
+                    <li>Press the blue button to start moving.</li>
+                    <li>Use WASD or arrow keys to navigate the <strong>square</strong> to the <strong>plus</strong>.</li>
+                    <li>Use the LEDs on the right to find the matching maze.</li>
+                    <li>Attempting to cross a line in the maze will cause a strike.</li>
+                </ul>
+
+                <table style="width: 100%;">
+                    <tr><th>LEDs</th><th>Maze</th><th>LEDs</th><th>Maze</th></tr>
+                    <tr>
+                        <td>Blue, Blue</td>
+                        <td><img src="img/maze1.png" style="width: 100%;"></td>
+                        <td>Blue, Yellow</td>
+                        <td><img src="img/maze2.png" style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Green, Yellow</td>
+                        <td><img src="img/maze3.png" style="width: 100%;"></td>
+                        <td>Red, Blue</td>
+                        <td><img src="img/maze4.png" style="width: 100%;"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 4 of 18</div>
+        </div>
+
+        <div class="page page-bg-05 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Big Talking, Big Problems</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Big Talking, Big Problems</h2>
+                <p class="flavour-text">4head fourhead forehead smolhead bighead</p>
+                <ul>
+                    <li>Read the display and find what numbers to use.</li>
+                    <li>Use the first two words for table A, and the next two for table B.</li>
+                    <li>Find the corresponding number in both tables.</li>
+                    <li>
+                        Press the yellow button when the rightmost seconds digit is the 1st number,
+                        and <strong><em>press again</em></strong> when the rightmost seconds digit is the 2nd number.
+                    </li>
+                </ul>
+
+                <table style="margin-top: 1em;">
+                    <tr><th>TABLE A</td><th>"Big"</th><th>"Small"</th><th>TABLE B</th><th>"Big"</th><th>"Small"</th></tr>
+                    <tr><td>"Forehead"</td><td>9</td><td>3</td><td>"Forehead"</td><td>5</td><td>4</td>
+                    <tr><td>"Foreheads"</td><td>7</td><td>5</td><td>"Foreheads"</td><td>1</td><td>2</td>
+                    <tr><td>"Fourhead"</td><td>5</td><td>9</td><td>"Fourhead"</td><td>6</td><td>9</td>
+                    <tr><td>"4head"</td><td>8</td><td>0</td><td>"4head"</td><td>0</td><td>3</td>
+                    <tr><td>"Twohead"</td><td>1</td><td>4</td><td>"Twohead"</td><td>8</td><td>6</td>
+                    <tr><td>"Twoheads"</td><td>2</td><td>7</td><td>"Twoheads"</td><td>1</td><td>2</td>
+                    <tr><td>"2head"</td><td>4</td><td>5</td><td>"2head"</td><td>5</td><td>4</td>
+                    <tr><td>"Bighead"</td><td>0</td><td>1</td><td>"Bighead"</td><td>0</td><td>7</td>
+                    <tr><td>"Smallhead"</td><td>8</td><td>3</td><td>"Smallhead"</td><td>3</td><td>1</td>
+                    <tr><td>"Business"</td><td>9</td><td>2</td><td>"Business"</td><td>4</td><td>5</td>
+                    <tr><td>"Problems"</td><td>3</td><td>8</td><td>"Problems"</td><td>8</td><td>6</td>
+                    <tr><td>"History"</td><td>7</td><td>6</td><td>"History"</td><td>0</td><td>9</td>
+                    <tr><td>"James"</td><td>6</td><td>4</td><td>"James"</td><td>6</td><td>9</td>
+                    <tr><td>"Explosions"</td><td>1</td><td>5</td><td>"Explosions"</td><td>4</td><td>3</td>
+                    <tr><td>"Talking"</td><td>0</td><td>9</td><td>"Talking"</td><td>2</td><td>7</td>
+                    <tr><td>"Explosion"</td><td>6</td><td>0</td><td>"Explosion"</td><td>1</td><td>8</td>
+                    <tr><td>"Jamo"</td><td>5</td><td>2</td><td>"Jamo"</td><td>6</td><td>3</td>
+                </table>
+            </div>
+            <div class="page-footer relative-footer">Page 5 of 18</div>
+        </div>
+
+        <div class="page page-bg-06 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Keypad</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Keypad</h2>
+                <p class="flavour-text">long-ass serial number</p>
+                <p>Find the 4 digits of the PIN (Digit A-D), and input the digits in the correct order.</p>
+                
+                <h4>Step 1: Find digits A-D</h4>
+                <table>
+                    <tr><th>Digit</th><th>Instructions</th></tr>
+                    <tr>
+                        <td>A</td>
+                        <td>
+                            If SN(4th) + SN(5th) &lt; 10, then A = SN(4th) + SN(5th).<br>
+                            Otherwise, A = SN(8th).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            If current day of month &lt; 10, then let B be that.<br>
+                            Otherwise, B = SN(last).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            If current month comes after June, then C = SN(2nd).<br>
+                            Otherwise, if SN(6th) &times; SN(7th) &gt; 25, C = 8.<br>
+                            Otherwise, C = SN(9th).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>
+                            If SN(1st) - SN(last) &lt; 0, D = 4.<br>
+                            Otherwise, if there exists a dual button module, D = SN(4th).<br>
+                            Otherwise, D = SN(5th).
+                        </td>
+                    </tr>
+                </table>
+
+                <h4>Step 2: Input order</h4>
+                <p style="margin-bottom: 0;">Find the correct order using the 2 LED indicators.</p>
+                <p>Any invalid inputs will cause a strike and reseting all inputs.</p>
+
+                <table>
+                    <tr><th>LED</th>            <th>Digit Order</th></tr>
+                    <tr><td>Pink, Blue</td>     <td>D C A B</td></tr>
+                    <tr><td>Yellow, Blue</td>   <td>A C B D</td></tr>
+                    <tr><td>Yellow, Green</td>  <td>B C A D</td></tr>
+                    <tr><td>Blue, Green</td>    <td>C A B D</td></tr>
+                    <tr><td>Blue, Red</td>      <td>C B D A</td></tr>
+                    <tr><td>Pink, Red</td>      <td>D A B C</td></tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 6 of 18</div>
+        </div>
+
+        <div class="page page-bg-07 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Advanced Wires</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Advanced Wires</h2>
+                <p class="flavour-text">wires pro max++ 2.0 :p</p>
+                <p>Use the table below to decide whether to cut each wire. Once done, press the submit button.</p>
+
+                <table>
+                    <tr><th>Color</th>  <td>+</td><td>x</td><td>o</td><td>=</td><td>|</td><td>(blank)</td></tr>
+                    <tr><td>Red</td>    <td>C</td><td>L</td><td>F</td><td>S</td><td>N</td><td style="text-align: center;">T</td></tr>
+                    <tr><td>Green</td>  <td>T</td><td>N</td><td>S</td><td>C</td><td>L</td><td style="text-align: center;">F</td></tr>
+                    <tr><td>Blue</td>   <td>L</td><td>C</td><td>F</td><td>S</td><td>T</td><td style="text-align: center;">N</td></tr>
+                    <tr><td>Yellow</td> <td>N</td><td>F</td><td>L</td><td>T</td><td>S</td><td style="text-align: center;">C</td></tr>
+                </table>
+
+                <table style="margin-top: 2em;">
+                    <tr><th>Letter</th><th>Instruction</th></tr>
+                    <tr><td>C</td><td>Cut the wire</td></tr>
+                    <tr><td>N</td><td>Do not cut the wire</td></tr>
+                    <tr><td>L</td><td>Cut if it is in the far right</td></tr>
+                    <tr><td>F</td><td>Cut if it is in the far left or one right from it</td></tr>
+                    <tr><td>T</td><td>Cut if SN(3rd) &gt; 4</td></tr>
+                    <tr><td>S</td><td>Cut if SN(7th) &lt; 5</td></tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 7 of 18</div>
+        </div>
+
+        <div class="page page-bg-08 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Symbols on First</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Symbols on First</h2>
+                <p class="flavour-text">toughest module imo - D3K</p>
+                <ul>
+                    <li>This module has a displayed symbol, and 6 buttons with a symbol on them.</li>
+                    <li><em>In step 1</em>, read the display and note the symbol on the corresponding button.</li>
+                    <li><em>In step 2</em>, use the noted symbol and to find what button to press.</li>
+                    <li>Repeat step 1-2 three times to disarm the module.</li>
+                </ul>
+
+                <h3>Step 1:</h3>
+                <table class="whos-on-first-step1-table">
+                    <tr>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/bell.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td>x</td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/mail.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td>x</td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/neutral.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td>x</td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/penhold.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td>x</td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/peace.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td>x</td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/mailbox.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td>x</td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/nuclear.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td>x</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/4horn.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td>x</td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/flag.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td></td><td>x</td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="eye-table">
+                                <tr><th class="whos-on-first-look-at-display" colspan="2">
+                                    <img src="img/Symbols/keyboard.png" style="filter: invert(1); height: 140%;">
+                                </th></tr>
+                                <tr><td></td><td></td></tr>
+                                <tr><td>x</td><td></td></tr>
+                                <tr><td></td><td></td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 8 of 18</div>
+        </div>
+
+        <div class="page page-bg-09 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Symbols on First</span>
+            </div>
+            <div class="page-content">
+                <h3>Step 2: Press the button in the correct spot</h3>
+                <p style="margin-bottom: 0;">TL/ML/BL: Top Left, Middle Left, Bottom Left</p>
+                <p style="margin-top: 0;">TR/MR/BR: Top Right, Middle Right, Bottom Right</p>
+
+                <table width="100%">
+                    <tr><th>Symbol</th><th>Rules</th></tr>
+                    <tr>
+                        <td><img src="img/Symbols/peace.png"></td>
+                        <td>Press Any Button.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/mailbox.png"></td>
+                        <td>Press the <img src="img/Symbols/mail.png"> button if it exists. Otherwise, press TR.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/4horn.png"></td>
+                        <td>If at least half of the total modules have been disarmed, press BR.<br>
+                        <p style="font-size: 13px; margin-bottom: 0;">Note: At least half of the total modules <strong>must</strong> 
+                        be completed before you can push the button.</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/flag.png"></td>
+                        <td>If SN(5th) is a prime number or 1, press ML.<br>
+                        Otherwise, if there is a "Wires" module on the bomb, press BR.<br>
+                        Otherwise, press BL.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/keyboard.png"></td>
+                        <td>Add SN(last) to the number of letters in the current month's name.<br>
+                        If that value is &leq;8, press MR.<br>
+                        Otherwise, press BL.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/penhold.png"></td>
+                        <td>If the TR button is <img src="img/Symbols/peace.png">, press BL.<br>
+                        Otherwise, if SN(3rd) &gt; 5, press MR.<br>
+                        Otherwise, if SN(3rd) &lt; 5, press BR.<br>
+                        Otherwise, if SN(3rd) &equals; 5, press TL.<br></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/neutral.png"></td>
+                        <td>If today is Monday, press BL.<br>
+                        Otherwise, if today is on the weekend, press ML.<br>
+                        Otherwise, if SN(1st) is 4, press TL.<br>
+                        Otherwise, if today is Wednesday, press BR.<br>
+                        Otherwise, press MR.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Symbols/mail.png"></td>
+                        <td>If the ML button is <img src="img/Symbols/mail.png"> OR <img src="img/Symbols/bell.png"> OR <img src="img/Symbols/mailbox.png">, press ML.<br>
+                        If none of the buttons are <img src="img/Symbols/flag.png">, press BR.<br>
+                        If any buttons on the left side is <img src="img/Symbols/4horn.png">, press MR.<br>
+                        Otherwise, press BL.</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-footer relative-footer">Page 9 of 18</div>
+        </div>
+
+        <div class="page page-bg-10 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Symbols on First</span>
+            </div>
+            <div class="page-content">
+                <h3>Step 2 (cont): Press the button in the correct spot</h3>
+                If the symbol is <img src="img/Symbols/bell.png">, use the first digit of the serial number, and press the following:
+                <tr>
+                    <td>
+                        <table>
+                            <tr><th class="whos-on-first-look-at-display" colspan="2">To press:</th></tr>
+                            <tr><td>0/4</td><td>1/7</td></tr>
+                            <tr><td>6/9</td><td>2</td></tr>
+                            <tr><td>3</td><td>5/8</td></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                If the symbol is <img src="img/Symbols/nuclear.png">, use the last digit of the serial number, and press the following:
+                <tr>
+                    <td>
+                        <table>
+                            <tr><th class="whos-on-first-look-at-display" colspan="2">To press:</th></tr>
+                            <tr><td>3/4</td><td>1</td></tr>
+                            <tr><td>2/9</td><td>0/5/6</td></tr>
+                            <tr><td>7</td><td>8</td></tr>
+                        </table>
+                    </td>
+                </tr>
+                
+            </div>
+            <div class="page-footer relative-footer">Page 10 of 18</div>
+        </div>
+
+        <div class="page page-bg-11 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Morse to Binary</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Morse to Binary</h2>
+                <p class="flavour-text">ain't no way you no rember the morse code 💀</p>
+                <ul>
+                    <li>Convert each letter into morse code, then to binary values
+                        with <strong>dash = 1 and dot = 0</strong>.</li>
+                    <li>Calculate the expression. Notice order of operations are in play so
+                        multiplication before addition/subtraction.</li>
+                    <li>If your answer is non-negative, input the number as it is.</li>
+                    <li>If your answer is <strong>negative</strong>, input the number, then <em>press the '-' button afterwards</em>.</li>
+                    <li>Press the '=' button to submit, and 'R' button to reset.</li>
+                </ul>
+                <div style="margin-top: 2em;">
+                    <img id="morseSignalImg" src="img/morse-signals.svg" style="width: 75%; display: block; margin: 0 auto;">
+                    <p style="font-size: 14px;">(Image from Keep Talking and Nobody Explode Player Manual)</p>
+                </div>
+            </div>
+            <div class="page-footer relative-footer">Page 11 of 18</div>
+        </div>
+
+        <div class="page page-bg-12 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Accents</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Accents</h2>
+                <p class="flavour-text">sorry i dont speak in symbols</p>
+                <ul>
+                    <li>This module has 5 letters with an accent above.</li>
+                    <li>Press the left/right arrow to cycle through the letters.</li>
+                    <li>For each letter, find its value using the table below.</li>
+                    <li>Submit the letters in <strong>descending order of value</strong>, 
+                        that is, from highest to lowest value by using the blank submit button.</li>
+                    <li>In case of having same values, you may press them in any order.</li>
+                    <li><strong>If the value is &geq; 10, change it to its <em>leftmost</em> digit.</strong></li>
+                </ul>
+                <p style="font-size: 14px;">*Note: It is possible to have 0 or negative values.</p>
+
+                <h3>Accent Names:</h3>
+                <div>
+                    <p style="margin: 0em 0.5em;">` - Grave</p>
+                    <p style="margin: 0em 0.5em;">´ - Acute</p>
+                    <p style="margin: 0em 0.5em;">^ - Circumflex</p>
+                    <p style="margin: 0em 0.5em;">~ - Tilde</p>
+                    <p style="margin: 0em 0.5em;">¨ - Diaeresis</p>
+                    <p style="margin: 0em 0.5em;">° - Ring</p>
+                </div>
+
+            </div>
+            <div class="page-footer relative-footer">Page 12 of 18</div>
+        </div>
+
+        <div class="page page-bg-13 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Accents</span>
+            </div>
+            <div class="page-content">
+                <table width="100%">
+                    <tr><td>
+                    <strong><em>1st letter:</em></strong><br>
+                    If the letter has the diaeresis accent, its value is SN(1st) + SN(last).<br>
+                    Else, if the letter has the tilde accent, its value is SN(1st) &times; SN(last).<br>
+                    Else, if the letter has the circumflex accent, its value is SN(1st) - SN(last).<br>
+                    Else, its value is SN(1st).
+                    </td></tr>
+                    <tr><td>
+                    <strong><em>2nd letter:</em></strong><br>   
+                    If the letter is <strong>'î'</strong>, its value is 4.<br>
+                    Else, if the letter is <strong>'u'</strong> with any accent, its value is SN(4th).<br>
+                    Else, if the letter is <strong>'a'</strong> with any accent, its value is SN(4th) <strong>squared</strong>.<br>
+                    Else, its value is 7.
+                    </td></tr>
+                    <tr><td>
+                        <strong><em>3rd letter:</em></strong><br>
+                        If the letter is <strong>'ð'</strong>, its value is 8.<br>
+                        Else, if the letter is <strong>'i'</strong> with any accent, its value is SN(7th).<br>
+                        Else, if the letter has the grave accent, its value is 11 - SN(7th).<br>
+                        Else, its value is SN(7th) + SN(5th) - 3.
+                    </td></tr>
+                    <tr><td>
+                        <strong><em>4th letter:</em></strong><br>
+                        If the letter is <strong>'y'</strong> with any accent, its value is 2.<br>
+                        Else, if the letter is <strong>'e'</strong> with any accent, its value is SN(5th) + SN(3rd).<br>
+                        Else, if the letter is <strong>'ü'</strong> or <strong>'é'</strong>, its value is 5.<br>
+                        Else, its value is the number of modules on the bomb.
+                    </td></tr>
+                    <tr><td>
+                        <strong><em>5th letter:</em></strong><br>   
+                        If the letter is <strong>'å'</strong>, its value is 1.<br>
+                        Else, if the letter has the tilde accent, its value is SN(2nd).<br>
+                        Else, if the letter is <strong>'o'</strong> with any accent, its value is [SN(2nd) + SN(3rd)] &times; 2.<br>
+                        Else, its value is 4.
+                    </td></tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 13 of 18</div>
+        </div>
+
+        <div class="page page-bg-14 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">9 Maths</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of 9 Maths</h2>
+                <p class="flavour-text">i'll just wait for the timer to go down on this one.</p>
+                <ul>
+                    <li>**If there is less than 20 seconds on the bomb timer, press 'NO' at anytime.</li>
+                    <li>The module displays a student and a reason.</li>
+                    <li>Press the correct button at the correct time.</li>
+                </ul>
+
+                <h3>What to press:</h3>
+                <p style="font-size: 15px;">**Would highly recommend learning the logic gates: OR, AND, NOT</p>
+                <table>
+                    <tr><th style="text-align: left;">Condition (first that apply):</th><th>Press:</th></tr>
+                    <tr><td>Student: Reilly</td><td>GO</td></tr>
+                    <tr><td>Student: James <strong>AND</strong> Reason: Toilet</td><td>KILL</td></tr>
+                    <tr><td>3rd digit of SN is 0</td><td>GO</td></tr>
+                    <tr><td>Today is Saturday or Sunday</td><td>GO</td></tr>
+                    <tr><td>Student: Tom OR Josh</td><td>GO</td></tr>
+                    <tr><td>Student: Rumi OR James OR Jacob</td><td>NO</td></tr>
+                    <tr><td>Student: James</td><td>KILL</td></tr>
+                    <tr><td>Student: Rex <strong>AND</strong> Reason: NOT (new book OR locker)</td><td>KILL</td></tr>
+                    <tr><td>Reason: new book</td><td>GO</td></tr>
+                    <tr><td>Student: Issac OR Declan</td><td>NO</td></tr>
+                    <tr><td>Student: Alec</td><td>GO</td></tr>
+                    <tr><td>Current Month is December</td><td>KILL</td></tr>
+                    <tr><td>Reason: Toilet</td><td>KILL</td></tr>
+                    <tr><td>Reason: Drink</td><td>GO</td></tr>
+                    <tr><td>Else:</td><td>NO</td></tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 14 of 18</div>
+        </div>
+
+        <div class="page page-bg-15 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">9 Maths</span>
+            </div>
+            <div class="page-content">
+                <h3>When to press:</h3>
+                <ul>
+                    <li>Use the first digit of the serial number on the left side, and last digit on the top side to get the 1st number.</li>
+                    <li>Use the other list below to get the 2nd number.</li>
+                    <li>Sum the 2 numbers, <strong>take the rightmost digit if the value is over 9</strong>.</li>
+                    <li>Press the correct button when the rightmost digit of the timer is equal to the calculated digit.</li>
+                </ul>
+
+                <table>
+                    <tr><th>1st\Last</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
+                    <tr><th>0</th><td>0</td><td>6</td><td>3</td><td>1</td><td>5</td><td>4</td><td>2</td><td>9</td><td>8</td><td>7</td></tr>
+                    <tr><th>1</th><td>7</td><td>8</td><td>9</td><td>4</td><td>2</td><td>3</td><td>6</td><td>0</td><td>1</td><td>5</td></tr>
+                    <tr><th>2</th><td>6</td><td>9</td><td>0</td><td>5</td><td>8</td><td>2</td><td>7</td><td>1</td><td>4</td><td>3</td></tr>
+                    <tr><th>3</th><td>2</td><td>4</td><td>1</td><td>6</td><td>7</td><td>5</td><td>0</td><td>3</td><td>8</td><td>9</td></tr>
+                    <tr><th>4</th><td>4</td><td>3</td><td>5</td><td>0</td><td>1</td><td>6</td><td>9</td><td>2</td><td>7</td><td>8</td></tr>
+                    <tr><th>5</th><td>1</td><td>5</td><td>4</td><td>3</td><td>9</td><td>7</td><td>8</td><td>6</td><td>2</td><td>0</td></tr>
+                    <tr><th>6</th><td>3</td><td>0</td><td>6</td><td>7</td><td>4</td><td>9</td><td>1</td><td>8</td><td>5</td><td>2</td></tr>
+                    <tr><th>7</th><td>9</td><td>1</td><td>7</td><td>2</td><td>6</td><td>8</td><td>3</td><td>5</td><td>0</td><td>4</td></tr>
+                    <tr><th>8</th><td>8</td><td>7</td><td>2</td><td>9</td><td>3</td><td>0</td><td>5</td><td>4</td><td>6</td><td>1</td></tr>
+                    <tr><th>9</th><td>5</td><td>2</td><td>9</td><td>8</td><td>0</td><td>1</td><td>4</td><td>7</td><td>3</td><td>6</td></tr>
+                </table>
+
+                <p style="margin-bottom: 0;"><em>Number to add:</em></p>
+                <ul style="margin-top: 0.25em;">
+                    <li>If the reason is new book, +25</li>
+                    <li>If the reason is wagging, +69</li>
+                    <li>If the reason is toilet, +0</li>
+                    <li>If the reason is locker, +5</li>
+                    <li>If the reason is drink, +3</li>
+                </ul>
+
+            </div>
+            <div class="page-footer relative-footer">Page 15 of 18</div>
+        </div>
+
+        <div class="page page-bg-16 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Memory (Boss Module)</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of Memory (Boss Module)</h2>
+                <p class="flavour-text">Boss Module: a module that provides new information upon solving other modules,
+                    and has to be solved at the end (or near the end).
+                </p>
+                <ul>
+                    <li>The module displays 2 numbers separated by <strong>"|"</strong>.</li>
+                    <li>The left number is the stage number,
+                    and the right number is the number to be remembered.</li>
+                    <li>After solving a module, the display changes and the module advances to a new stage.
+                        Remember the displayed numbers in each stage and find a new number (for each stage, separately) via steps stated below.
+                    </li>
+                    <li><strong>If the number calculated is &gt;10, take the UNIT digit.</strong></li>
+                    <li>Input the whole string of numbers calculated to disarm the module.</li>
+                </ul>
+
+                <p>**Note: Other memory modules, 'Big Button' modules, and Needy modules are ignored.</p>
+
+                <table width="100%">
+                    <tr><td>
+                    <strong><em>First input:</em></strong><br>
+                    If SN(1st) = 3, then the first input is <strong>3</strong>.<br>
+                    Otherwise, if SN(1st) &lt; 5, then the first input is <strong>stage 1's number + 3</strong>.
+                    Otherwise, the first input is <strong>stage 1's number + 6</strong>.
+                    </td></tr>
+                    <tr><td>
+                    <strong><em>Every other input:</em></strong><br>
+                    If SN(last) &gt; 5, then the input is <strong>the remembered number + SN(last)</strong>.<br>
+                    Otherwise, the input is <strong>the remembered number &times; SN(last)</strong>.
+                    </td></tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">Page 16 of 18</div>
+        </div>
+
+        <div class="page page-bg-17 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Needy Modules</span>
+            </div>
+            <div class="page-content">
+                <h2>On the Subject of the Big Button & Needy Modules</h2>
+                <p class="flavour-text">needies ughh :/</p>
+                
+                <h3>Big Button</h3>
+                <p>Press the button when the bomb time reaches the stated time.</p>
+
+                <h3>Dual Capacitors (Needy)</h3>
+                <p style="margin-bottom: 0;">Discharge the capacitors occasionally to avoid overloading.</p>
+                <p>You will receive a strike if either capacitors overload, 
+                   but both capacitors will then be completely discharged.</p>
+
+                <h3>Button Masher (Needy)</h3>
+                <p style="margin-bottom: 0;">Press the button the exact amount of times displayed before the time runs out.</p>
+                <p>Extra presses or insufficient presses will cause a strike.</p>
+
+            </div>
+            <div class="page-footer relative-footer">Page 17 of 18</div>
+        </div>
+
+        <div class="page page-bg-18 strip">
+            <div class="page-header">
+                <span class="page-header-doc-title">Big Talking, Big Explosions (Full Condensed Manual)</span>
+                <span class="page-header-section-title">Credits</span>
+            </div>
+            <div class="page-content">
+                <h2>Credits:</h2>
+                <ul>
+                    <li><em>Project Manager</em>: Awesome7285</li>
+                    <li><em>Game Programming</em>: Awesome7285</li>
+                    <li><em>Game Assets</em>: Awesome7285</li>
+                    <li><em>Music and Sounds</em>: Awesome7285 and his friend</li>
+                </ul>
+
+                <ul>
+                    <li><em>Original Manual</em>: Awesome7285</li>
+                    <li><em>Condensed Manual</em>: D3K</li>
+                </ul>
+
+                <p>The creation of this condensed manual is (heavily) inspired by the modded 
+                    Keep Talking and Nobody Explodes community.</p>
+
+            </div>
+            <div class="page-footer relative-footer">Page 18 of 18</div>
+        </div>
+    </div>
+</body>
+</html>
